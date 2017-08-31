@@ -7,3 +7,12 @@
 /build
 /captures
 .externalNativeBuild
+/.idea/vcs.xml
+/.idea/runConfigurations.xml
+/.idea/gradle.xml
+/.idea/misc.xml
+/.idea/modules.xml
+app/build/
+app/libs/
+app/src/main/java/com/jdkgroup/customviews/dragndrop/
+app/src/main/java/com/jdkgroup/model/api/
