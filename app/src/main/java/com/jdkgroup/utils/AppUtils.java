@@ -20,13 +20,14 @@ import android.net.Network;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatEditText;
 import android.telephony.TelephonyManager;
@@ -48,10 +49,34 @@ import android.widget.Toast;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.jdkgroup.cleanup.BaseDrawerActivity;
 import com.jdkgroup.cleanup.R;
+import com.jdkgroup.cleanup.fragment.CustomerCreateFragment;
+import com.jdkgroup.cleanup.fragment.CustomerDetailsFragment;
+import com.jdkgroup.cleanup.fragment.CustomerEditFragment;
+import com.jdkgroup.cleanup.fragment.CustomerListFragment;
+import com.jdkgroup.cleanup.fragment.FeedbackFragment;
+import com.jdkgroup.cleanup.fragment.HomeFragment;
+import com.jdkgroup.cleanup.fragment.InvoiceListFragment;
+import com.jdkgroup.cleanup.fragment.LeadCreateBasicEditFragment;
+import com.jdkgroup.cleanup.fragment.LeadCreateBasicFragment;
+import com.jdkgroup.cleanup.fragment.LeadCreateFragment;
+import com.jdkgroup.cleanup.fragment.LeadDetailsFragment;
+import com.jdkgroup.cleanup.fragment.LeadEditFragment;
+import com.jdkgroup.cleanup.fragment.LeadListFragment;
+import com.jdkgroup.cleanup.fragment.LeadSearchToCreateFragment;
+import com.jdkgroup.cleanup.fragment.MeetingListFragment;
+import com.jdkgroup.cleanup.fragment.OpportunityDetailsFragment;
+import com.jdkgroup.cleanup.fragment.OpportunityListFragment;
+import com.jdkgroup.cleanup.fragment.QuotationCreateFragment;
+import com.jdkgroup.cleanup.fragment.QuotationDetailsFragment;
+import com.jdkgroup.cleanup.fragment.QuotationListFragment;
+import com.jdkgroup.cleanup.fragment.QuotationSearchToCreateFragment;
+import com.jdkgroup.cleanup.fragment.TaskListFragment;
+import com.jdkgroup.cleanup.fragment.VerifyOTPFragment;
+import com.jdkgroup.cleanup.model.OSInfo;
 import com.jdkgroup.connection.RestConstant;
 import com.jdkgroup.customviews.gson.ListOfJson;
-import com.jdkgroup.model.OSInfo;
 
 import org.json.JSONObject;
 
@@ -98,33 +123,19 @@ public class AppUtils {
     }
 
     public static boolean isEmpty(EditText editText) {
-        if (getText(editText).equalsIgnoreCase("")) {
-            return true;
-        }
-        return false;
+        return getText(editText).equalsIgnoreCase("");
     }
-
-    public static void showSnakBar(CoordinatorLayout coordinatorLayout, String message) {
-        Snackbar snackbar = Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_LONG);
-        snackbar.show();
-    }
-
-    public static void showSnakBarIntetConnection(Snackbar snackbar, CoordinatorLayout coordinatorLayout, String message) {
-        snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_LONG);
-        snackbar.show();
-    }
-
 
     public static void showToast(Context context, String message) {
         Toast toast = Toast.makeText(context, message, Toast.LENGTH_SHORT);
-        TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+        TextView v = toast.getView().findViewById(android.R.id.message);
         if (v != null) v.setGravity(Gravity.CENTER);
         toast.show();
     }
 
     public static void showToastById(Context context, int id) {
         Toast toast = Toast.makeText(context, getStringFromId(context, id), Toast.LENGTH_SHORT);
-        TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+        TextView v = toast.getView().findViewById(android.R.id.message);
         if (v != null) v.setGravity(Gravity.CENTER);
         toast.show();
     }
@@ -583,7 +594,7 @@ public class AppUtils {
         }
     }
 
-  /*  public static void replaceFragment(Activity activity, Fragment fragment, Bundle bundle) {
+    public static void replaceFragment(Activity activity, Fragment fragment, Bundle bundle) {
         String backStateName = fragment.getClass().getName();
         String fragmentTag = backStateName;
         FragmentManager fragmentManager = ((BaseDrawerActivity) activity).getSupportFragmentManager();
@@ -594,11 +605,12 @@ public class AppUtils {
             if (bundle != null) {
                 fragment.setArguments(bundle);
             }
+            fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
             fragmentTransaction.replace(R.id.frameLayout, fragment, backStateName);
             fragmentTransaction.addToBackStack(backStateName);
             fragmentTransaction.commit();
         }
-    }*/
+    }
 
     public static void lauchFramgentActivity(final Activity activity, final int redirect) {
         Fragment fragment;
@@ -606,6 +618,121 @@ public class AppUtils {
         switch (redirect) {
             case 0: //LOGOUT
 
+                break;
+
+            case 1_0: //HOME
+                fragment = new HomeFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 1_0_1: //VERIFY OTP
+                fragment = new VerifyOTPFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 1: //CUSTOMER LIST
+                fragment = new CustomerListFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 1_1: //CUSTOMER CREATE
+                fragment = new CustomerCreateFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 1_2: //CUSTOMER DETAILS
+                fragment = new CustomerDetailsFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 1_3: //CUSTOMER  EDIT
+                fragment = new CustomerEditFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 2: //LEAD LIST
+                fragment = new LeadListFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 2_1: //LEAD SEARCH TO CREATE
+                fragment = new LeadSearchToCreateFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 2_2: //LEAD CREATE BASIC
+                fragment = new LeadCreateBasicFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 2_3: //LEAD CREATE
+                fragment = new LeadCreateFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 2_4: //LEAD DETAILS
+                fragment = new LeadDetailsFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 2_5: //LEAD CREATE BASIC EDIT
+                fragment = new LeadCreateBasicEditFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 2_6: //LEAD EDIT
+                fragment = new LeadEditFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 3: //OPPORTUNITY LIST
+                fragment = new OpportunityListFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 3_1: //OPPORTUNITY DETAILS
+                fragment = new OpportunityDetailsFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 4: //QUOTATION LIST
+                fragment = new QuotationListFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 4_1: //QUOTATION SEARCH TO CREATE
+                fragment = new QuotationSearchToCreateFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 4_2: //QUOTATION DETAILS
+                fragment = new QuotationDetailsFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 4_3: //QUOTATION CREATE
+                fragment = new QuotationCreateFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 5: //INVOICE LIST
+                fragment = new InvoiceListFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 6: //MEETING LIST
+                fragment = new MeetingListFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 7: //TASK LIST
+                fragment = new TaskListFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 100_1: //FEEDBACK
+                fragment = new FeedbackFragment();
+                replaceFragment(activity, fragment, null);
                 break;
 
             default:
@@ -668,7 +795,7 @@ public class AppUtils {
             e.printStackTrace();
         }
 
-        TelephonyManager tm = (TelephonyManager) activity.getSystemService(activity.TELEPHONY_SERVICE);
+        TelephonyManager tm = (TelephonyManager) activity.getSystemService(Context.TELEPHONY_SERVICE);
         countryIso = tm.getNetworkCountryIso();
         networkOperatorName = tm.getNetworkOperatorName();
 

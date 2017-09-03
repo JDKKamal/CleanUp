@@ -8,7 +8,11 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.Toolbar;
@@ -82,11 +86,11 @@ public class BaseActivity extends AppCompatActivity {
         item.setTitle(mNewTitle);
     }
 
-  /*  protected void actionBarDrawerToggle(DrawerLayout drawerLayout, Toolbar toolBar) {
+   protected void actionBarDrawerToggle(DrawerLayout drawerLayout, Toolbar toolBar) {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolBar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.setDrawerListener(toggle);
         toggle.syncState();
-    }*/
+    }
 
     protected Toolbar getToolbar() {
         return toolBar;
@@ -158,7 +162,7 @@ public class BaseActivity extends AppCompatActivity {
         }
         View view = LayoutInflater.from(this).inflate(R.layout.app_loading_dialog, null, false);
 
-        AppCompatImageView appIvProgressBar = (AppCompatImageView) view.findViewById(R.id.appIvProgressBar);
+        AppCompatImageView appIvProgressBar = view.findViewById(R.id.appIvProgressBar);
         Animation a1 = AnimationUtils.loadAnimation(this, R.anim.progress_anim);
         a1.setDuration(1500);
         appIvProgressBar.startAnimation(a1);
@@ -226,11 +230,12 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     public boolean hasInternetWithoutMessage() {
-        if (AppUtils.hasInternetConnection(this)) {
-            return true;
-        } else {
-            return false;
-        }
+        return AppUtils.hasInternetConnection(this);
+    }
+
+    public static void showSnakBar(CoordinatorLayout coordinatorLayout, String message) {
+        Snackbar snackbar = Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_SHORT);
+        snackbar.show();
     }
 
     /* TODO LAUNCH ACTIVITY/FRAGMENT */

@@ -6,6 +6,7 @@
     <color name="colorTint">#828282</color>
     <color name="colorNormalText">#414141</color>
     <color name="colorSecondaryText">#757575</color>
+    <color name="colorAppText">#FFCA28</color>
 
     <color name="colorDeliveryCharge">#D8A019</color>
     <color name="colorLink">#1986EF</color>

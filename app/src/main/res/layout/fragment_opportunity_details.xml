@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatTextView
+            style="@style/TextSemiBoldSizeRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="@dimen/small"
+            android:text="@string/lead_title"
+            android:textColor="@color/colorBlack" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small"
+            app:cardBackgroundColor="@color/colorCardViewBackground"
+            app:cardCornerRadius="@dimen/extraTiny"
+            app:cardElevation="@dimen/extraTiny"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small"
+                android:background="@drawable/style_app_edittext"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <android.support.v7.widget.AppCompatEditText
+                    android:id="@+id/appEdtCountry"
+                    style="@style/styleEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="0dp"
+                    android:layout_marginBottom="@dimen/medium"
+                    android:layout_toLeftOf="@+id/appIvArrowCountry"
+                    android:background="@null"
+                    android:ellipsize="end"
+                    android:focusable="false"
+                    android:hint="@string/hint_select_opportunity_quality"
+                    android:inputType="textNoSuggestions|none"
+                    android:lines="1" />
+
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/appIvArrowCountry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/small"
+                    android:src="@drawable/ic_expand_down" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small"
+            app:cardBackgroundColor="@color/colorCardViewBackground"
+            app:cardCornerRadius="@dimen/extraTiny"
+            app:cardElevation="@dimen/extraTiny"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/appTvCustomerId"
+                        style="@style/TextSemiBoldSizeRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:padding="@dimen/small"
+                        android:text="@string/lead_id"
+                        android:textColor="@color/colorBlack" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <android.support.v7.widget.AppCompatImageView
+                                android:id="@+id/appIvImagePurchase"
+                                android:layout_width="@dimen/dimen_profile"
+                                android:layout_height="@dimen/dimen_profile"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:background="@drawable/iv_profile_placeholder"
+                                android:padding="@dimen/extraTiny" />
+
+                            <ProgressBar
+                                android:id="@+id/progressBar"
+                                android:layout_width="@dimen/extraLarge"
+                                android:layout_height="@dimen/extraLarge"
+                                android:layout_centerInParent="true"
+                                android:visibility="visible" />
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                android:padding="@dimen/small">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/small"
+                                    android:orientation="horizontal">
+
+                                    <android.support.v7.widget.AppCompatImageView
+                                        android:layout_width="@dimen/large"
+                                        android:layout_height="@dimen/large"
+                                        android:src="@drawable/ic_user" />
+
+                                    <android.support.v7.widget.AppCompatTextView
+                                        android:id="@+id/appTvCompanyMobile"
+                                        style="@style/TextRegularSizeMedium"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="@dimen/small"
+                                        android:layout_weight="1"
+                                        android:ellipsize="end"
+                                        android:maxLines="1"
+                                        android:text="@string/name"
+                                        android:textColor="@color/colorBlack" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/small"
+                                    android:orientation="horizontal">
+
+                                    <android.support.v7.widget.AppCompatImageView
+                                        android:layout_width="@dimen/large"
+                                        android:layout_height="@dimen/large"
+                                        android:src="@drawable/ic_mobile" />
+
+                                    <android.support.v7.widget.AppCompatTextView
+                                        android:id="@+id/appTvCompanyName"
+                                        style="@style/TextSemiBoldSizeRegular"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/small"
+                                        android:layout_gravity="center_vertical"
+                                        android:ellipsize="end"
+                                        android:maxLines="1"
+                                        android:text="@string/mobile"
+                                        android:textColor="@color/colorBlack" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/small"
+                                    android:orientation="horizontal">
+
+                                    <android.support.v7.widget.AppCompatImageView
+                                        android:layout_width="@dimen/large"
+                                        android:layout_height="@dimen/large"
+                                        android:src="@drawable/ic_date" />
+
+                                    <android.support.v7.widget.AppCompatTextView
+                                        android:id="@+id/appTvCompanyStart"
+                                        style="@style/TextRegularSizeMedium"
+                                        android:layout_width="match_parent"
+                                        android:layout_marginLeft="@dimen/small"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:ellipsize="end"
+                                        android:maxLines="1"
+                                        android:text="@string/email"
+                                        android:textColor="@color/colorBlack" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/appTvCompanyAddress"
+                            style="@style/TextRegularSizeMedium"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/address"
+                            android:textColor="@color/colorHintEditText"
+                            android:textSize="@dimen/medium_text" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <android.support.v7.widget.AppCompatTextView
+                                    android:id="@+id/appTvCustomerLead"
+                                    style="@style/TextRegularSizeMedium"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/city_with_location"
+                                    android:textColor="@color/colorHintEditText"
+                                    android:textSize="@dimen/medium_text" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:orientation="horizontal">
+
+                                <android.support.v7.widget.AppCompatTextView
+                                    android:id="@+id/appTvDate"
+                                    style="@style/TextRegularSizeRegular"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="@string/pincode"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorHintEditText" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/small"
+            app:cardBackgroundColor="@color/colorCardViewBackground"
+            app:cardCornerRadius="@dimen/extraTiny"
+            app:cardElevation="@dimen/extraTiny"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/small"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/small"
+                            android:orientation="horizontal"
+                            android:weightSum="1">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <android.support.v7.widget.AppCompatTextView
+                                    style="@style/TextRegularSizeMedium"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/lead_property_type"
+                                    android:textColor="@color/colorHintEditText"
+                                    android:textSize="@dimen/medium_text" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="right"
+                                android:orientation="horizontal">
+
+                                <android.support.v7.widget.AppCompatTextView
+                                    style="@style/TextRegularSizeRegular"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:text="@string/lead_property_name"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorHintEditText" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
+
+
+

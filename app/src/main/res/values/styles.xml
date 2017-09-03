@@ -84,6 +84,7 @@
         <item name="android:textSize">@dimen/regular_text</item>
     </style>
 
+    <!--Large Text Sizes-->
     <style name="TextLargeSizeRegular" parent="FontRegular">
         <item name="android:textSize">@dimen/medium</item>
     </style>
@@ -94,6 +95,23 @@
 
     <style name="TextSemiBoldSizeLarge" parent="FontSemiBold">
         <item name="android:textSize">@dimen/medium</item>
+    </style>
+
+    <!--Extra Large Text Sizes-->
+    <style name="TextExtraLargeSizeRegular" parent="FontRegular">
+        <item name="android:textSize">@dimen/huge</item>
+    </style>
+
+    <style name="TextExtraLargeLightSizeRegular" parent="FontLight">
+        <item name="android:textSize">@dimen/huge</item>
+    </style>
+
+    <style name="TextSemiBoldSizeExtraLarge" parent="FontSemiBold">
+        <item name="android:textSize">@dimen/huge</item>
+    </style>
+
+    <style name="TextSemiBoldSizeModule" parent="FontLight">
+        <item name="android:textSize">@dimen/large_medium_text</item>
     </style>
 
     <style name="styleEditTextPayment" parent="TextRegularSizeRegular">
@@ -181,6 +199,16 @@
         <item name="android:shadowRadius">4</item>
         <item name="android:shadowDx">1</item>
         <item name="android:shadowDy">3</item>
+    </style>
+
+    <style name="styleBottomTab">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/_20sdp</item>
+        <item name="android:paddingRight">@dimen/_20sdp</item>
+        <item name="android:paddingTop">@dimen/medium</item>
+        <item name="android:paddingBottom">@dimen/regular</item>
+
     </style>
 
 

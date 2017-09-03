@@ -10,7 +10,7 @@ public interface BaseView<T> {
     boolean hasInternetWithoutMessage();
     void showProgressDialog(boolean show);
     void showProgressToolBar(boolean show, View view);
-    void onSuccess(T response);
+    //void onSuccess(T response);
     //void onSuccess(List<T> response);
     void onFailure(String message);
     void onAuthenticationFailure(String message);

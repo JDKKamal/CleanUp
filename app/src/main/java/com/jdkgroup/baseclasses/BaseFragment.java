@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageView;
@@ -63,7 +65,7 @@ public class BaseFragment extends Fragment {
         }
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.app_loading_dialog, null, false);
 
-        AppCompatImageView imageView1 = (AppCompatImageView) view.findViewById(R.id.appIvProgressBar);
+        AppCompatImageView imageView1 = view.findViewById(R.id.appIvProgressBar);
         Animation a1 = AnimationUtils.loadAnimation(getActivity(), R.anim.progress_anim);
         a1.setDuration(1500);
         imageView1.startAnimation(a1);
@@ -105,6 +107,11 @@ public class BaseFragment extends Fragment {
         }
     }
 
+    public static void showSnakBar(CoordinatorLayout coordinatorLayout, String message) {
+        Snackbar snackbar = Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_SHORT);
+        snackbar.show();
+    }
+
     /*
     public void showProgress() {
         customProgressbar = new CustomProgressbar(this);
@@ -133,11 +140,7 @@ public class BaseFragment extends Fragment {
     }
 
     public boolean hasInternetWithoutMessage() {
-        if (AppUtils.hasInternetConnection(getActivity())) {
-            return true;
-        } else {
-            return false;
-        }
+        return AppUtils.hasInternetConnection(getActivity());
     }
 
     /* TODO LAUNCH ACTIVITY/FRAGMENT */

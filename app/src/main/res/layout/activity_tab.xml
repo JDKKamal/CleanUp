@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/custom_toolbar" />
+
+    <FrameLayout
+        android:id="@+id/fl_fragmentContainler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomLayout"
+        android:layout_below="@id/toolbar"
+        android:layout_marginBottom="-20dp">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shadow_border">
+
+            <ImageView
+                android:id="@+id/ivMyOrder"
+                style="@style/styleBottomTab"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/my_order_unselect" />
+
+            <ImageView
+                android:id="@+id/ivProfile"
+                style="@style/styleBottomTab"
+                android:layout_toRightOf="@id/ivMyOrder"
+                android:src="@drawable/profile_unselect" />
+
+            <ImageView
+                android:id="@+id/ivAboutUs"
+                style="@style/styleBottomTab"
+                android:layout_toLeftOf="@+id/ivContactUS"
+                android:src="@drawable/about_us_unselect" />
+
+            <ImageView
+                android:id="@id/ivContactUS"
+                style="@style/styleBottomTab"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/contact_us_unselect" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/ivHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="@dimen/small"
+            android:src="@drawable/home" />
+    </FrameLayout>
+</RelativeLayout>

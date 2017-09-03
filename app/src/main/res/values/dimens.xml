@@ -1,7 +1,9 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="dimen_margin_medium">@dimen/_16sdp</dimen>
-    <dimen name="dimen_category">@dimen/_100sdp</dimen>
+    <dimen name="dimen_profile">@dimen/_60sdp</dimen>
+    <dimen name="dimen_module">@dimen/_70sdp</dimen>
+    <dimen name="dimen_profile_edit">@dimen/_95sdp</dimen>
 
     //Margin and Padding
     <dimen name="extraTiny">@dimen/_1sdp</dimen>
@@ -41,4 +43,9 @@
     <dimen name="extraLarge_text">@dimen/_21sdp</dimen>
     <dimen name="big_text">@dimen/_23sdp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
 </resources>

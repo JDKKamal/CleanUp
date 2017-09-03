@@ -11,9 +11,7 @@ object Validator {
     }
 
     fun isEmplty(editText: EditText): Boolean {
-        return if (getText(editText).equals("", ignoreCase = true)) {
-            true
-        } else false
+        return getText(editText).equals("", ignoreCase = true)
     }
 
     fun isEmail(email: String): Boolean {
@@ -25,27 +23,21 @@ object Validator {
                 "[a-zA-Z]{2,8}" +
                 ")+"
 
-        return if (Pattern.compile(EMAIL_PATTERN).matcher(email).matches()) {
-            true
-        } else false
+        return Pattern.compile(EMAIL_PATTERN).matcher(email).matches()
 
     }
 
     fun isBusinessName(businessName: String): Boolean {
         val patern = "^[a-zA-Z0-9]+$"
 
-        return if (Pattern.compile(patern).matcher(businessName).matches()) {
-            true
-        } else false
+        return Pattern.compile(patern).matcher(businessName).matches()
 
     }
 
     fun isValidePassword(password: String): Boolean {
         val patern = "[^\\w\\d]*(([0-9]+.*[A-Za-z]+.*)|[A-Za-z]+.*([0-9]+.*))"
 
-        return if (Pattern.compile(patern).matcher(password).matches() && password.length > 4) {
-            true
-        } else false
+        return Pattern.compile(patern).matcher(password).matches() && password.length > 4
 
     }
 

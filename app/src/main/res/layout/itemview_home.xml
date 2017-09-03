@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/small"
+    app:cardCornerRadius="@dimen/extraTiny"
+    app:cardElevation="@dimen/extraTiny"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_home"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:clickable="true"
+            android:background="@drawable/ripple"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatImageView
+                        android:id="@+id/appIvImagePurchase"
+                        android:layout_width="@dimen/dimen_module"
+                        android:layout_height="@dimen/dimen_module"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:padding="@dimen/extraTiny" />
+
+                    <ProgressBar
+                        android:id="@+id/progressBar"
+                        android:layout_width="@dimen/extraLarge"
+                        android:layout_height="@dimen/extraLarge"
+                        android:layout_centerInParent="true"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/appTvTotal"
+                        style="@style/TextRegularSizeMedium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/small"
+                        android:layout_gravity="right"
+                        android:text="@string/total"
+                        android:textColor="@color/colorHintEditText"
+                        android:textSize="@dimen/medium_text" />
+
+                    <android.support.v7.widget.AppCompatTextView
+                        android:id="@+id/appTvModuleName"
+                        style="@style/TextSemiBoldSizeModule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:layout_marginLeft="@dimen/medium"
+                        android:layout_marginRight="@dimen/medium"
+                        android:maxLines="1"
+                        android:text="@string/module_name"
+                        android:textColor="@color/colorNormalEditText" />
+
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
+
+
+
