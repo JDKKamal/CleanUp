@@ -11,31 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include
-            android:id="@+id/inSearch"
-            layout="@layout/include_layout_search" />
-
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/bottomLayout"
-            android:layout_below="@+id/inSearch" />
-
-        <LinearLayout
-            android:id="@id/bottomLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical">
-
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/appBtnQuotationSearch"
-                style="@style/BlueButtonTheme"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/hugeSmall"
-                android:text="@string/btn_quotation_search" />
-        </LinearLayout>
+            android:layout_height="wrap_content"/>
     </RelativeLayout>
 
     <RelativeLayout

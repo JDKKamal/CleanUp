@@ -506,13 +506,13 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/appTvQuotationCreate"
+                android:id="@+id/appTvQuotationLastDetail"
                 style="@style/TextRegularSizeSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:padding="@dimen/small"
-                android:text="@string/quotation_create"
+                android:text="@string/quotation_last_detail"
                 android:textColor="@color/colorLink" />
 
             <android.support.v7.widget.CardView

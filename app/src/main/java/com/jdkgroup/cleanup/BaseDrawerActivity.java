@@ -11,6 +11,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -36,7 +37,6 @@ public class BaseDrawerActivity extends BaseActivity implements NavigationView.O
     public AppCompatImageView appIvProfile;
     public AppCompatTextView appTvName, appTvEmail;
     private int openDrawer = 1, closeDrawer = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,19 +68,28 @@ public class BaseDrawerActivity extends BaseActivity implements NavigationView.O
             }
         });
 
-
         appIvProfile.setOnClickListener(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem item;
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.setting, menu);
+
+        menu.findItem(R.id.action_search).setVisible(false);
+        menu.findItem(R.id.action).setVisible(false);
+
+        menu.setGroupVisible(R.id.action_group_customer, false);
+        menu.setGroupVisible(R.id.action_group_lead, false);
+        menu.setGroupVisible(R.id.action_group_quotation, false);
+        menu.setGroupVisible(R.id.action_group_task, false);
+        menu.setGroupVisible(R.id.action_group_invoice, false);
+
         return true;
     }
 
@@ -238,7 +247,7 @@ public class BaseDrawerActivity extends BaseActivity implements NavigationView.O
 
             case "CustomerDetailsFragment":
                 navigationView.getMenu().getItem(1).setChecked(true);
-                toolBar.setTitle(getString(R.string.title_customer_details));
+                toolBar.setTitle(getString(R.string.title_customer_view));
                 break;
 
             case "CustomerEditFragment":
@@ -253,7 +262,7 @@ public class BaseDrawerActivity extends BaseActivity implements NavigationView.O
 
             case "LeadSearchToCreateFragment":
                 navigationView.getMenu().getItem(2).setChecked(true);
-                toolBar.setTitle(getString(R.string.title_lead_search_to_create));
+                toolBar.setTitle(getString(R.string.action_lead_create));
                 break;
 
             case "LeadCreateFragment":
@@ -288,7 +297,7 @@ public class BaseDrawerActivity extends BaseActivity implements NavigationView.O
 
             case "OpportunityDetailsFragment":
                 navigationView.getMenu().getItem(3).setChecked(true);
-                toolBar.setTitle(getString(R.string.title_opportunity_details));
+                toolBar.setTitle(getString(R.string.title_opportunity_view));
                 break;
 
             case "QuotationListFragment":
@@ -303,7 +312,7 @@ public class BaseDrawerActivity extends BaseActivity implements NavigationView.O
 
             case "QuotationDetailsFragment":
                 navigationView.getMenu().getItem(4).setChecked(true);
-                toolBar.setTitle(getString(R.string.title_quotation_details));
+                toolBar.setTitle(getString(R.string.title_quotation_view));
                 break;
 
             case "QuotationCreateFragment":
@@ -314,6 +323,11 @@ public class BaseDrawerActivity extends BaseActivity implements NavigationView.O
             case "InvoiceListFragment":
                 navigationView.getMenu().getItem(5).setChecked(true);
                 toolBar.setTitle(getString(R.string.action_invoice));
+                break;
+
+            case "InvoiceViewFragment":
+                navigationView.getMenu().getItem(5).setChecked(true);
+                toolBar.setTitle(getString(R.string.title_invoice_view));
                 break;
 
             case "MeetingListFragment":

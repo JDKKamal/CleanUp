@@ -58,6 +58,7 @@ import com.jdkgroup.cleanup.fragment.CustomerListFragment;
 import com.jdkgroup.cleanup.fragment.FeedbackFragment;
 import com.jdkgroup.cleanup.fragment.HomeFragment;
 import com.jdkgroup.cleanup.fragment.InvoiceListFragment;
+import com.jdkgroup.cleanup.fragment.InvoiceViewFragment;
 import com.jdkgroup.cleanup.fragment.LeadCreateBasicEditFragment;
 import com.jdkgroup.cleanup.fragment.LeadCreateBasicFragment;
 import com.jdkgroup.cleanup.fragment.LeadCreateFragment;
@@ -717,6 +718,11 @@ public class AppUtils {
 
             case 5: //INVOICE LIST
                 fragment = new InvoiceListFragment();
+                replaceFragment(activity, fragment, null);
+                break;
+
+            case 5_1: //INVOICE VIEW
+                fragment = new InvoiceViewFragment();
                 replaceFragment(activity, fragment, null);
                 break;
 

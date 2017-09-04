@@ -16,28 +16,18 @@ public class BaseApplication extends MultiDexApplication {
     public static BaseApplication getBaseApplication() {
         return baseApplication;
     }
-
-
+    
     @Override
     public void onCreate() {
         super.onCreate();
         MultiDex.install(this);
         baseApplication = this;
 
-        initCalligraphy();
-        initRealm();
-    }
-
-    private void initCalligraphy()
-    {
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setDefaultFontPath("fonts/aileron_regular.otf")
                 .setFontAttrId(R.attr.fontPath)
                 .build());
-    }
 
-    public void initRealm()
-    {
         Realm.init(this);
         RealmConfiguration cfg = new RealmConfiguration.Builder()
                 .name(Realm.DEFAULT_REALM_NAME)

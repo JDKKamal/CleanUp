@@ -9,11 +9,10 @@ import android.support.v7.widget.AppCompatImageView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
-import com.jdkgroup.baseclasses.BaseActivity;
+
 import com.jdkgroup.baseclasses.SimpleMVPActivity;
 import com.jdkgroup.cleanup.R;
 import com.jdkgroup.cleanup.dialog.SpinnerDialog;
-import com.jdkgroup.cleanup.model.User;
 import com.jdkgroup.constant.AppConstant;
 import com.jdkgroup.cleanup.database.RealmController;
 import com.jdkgroup.cleanup.model.api.CountryModel;
@@ -157,7 +156,7 @@ public class RegisterUserActivity extends SimpleMVPActivity<RegisterUserPresente
     }
 
     @Override
-    public void responseCountryList(List<CountryModel> response) {
+    public void responseCountryList(List<?> response) {
         if (response.size() > 0) {
             SpinnerDialog sd = new SpinnerDialog(this, AppUtils.getStringFromId(this, R.string.title_country), new SpinnerDialog.OnItemClick() {
 
@@ -176,6 +175,4 @@ public class RegisterUserActivity extends SimpleMVPActivity<RegisterUserPresente
     @Override
     public void onFailure(String message) {
     }
-
-
 }

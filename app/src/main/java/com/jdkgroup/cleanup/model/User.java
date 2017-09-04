@@ -1,6 +1,8 @@
 package com.jdkgroup.cleanup.model;
 
-public class User {
+import com.jdkgroup.interacter.Response;
+
+public class User extends Response {
     public long id;
     public String firstname;
     public String lastname;

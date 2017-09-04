@@ -129,14 +129,6 @@
                         android:inputType="number"
                         android:lines="1" />
 
-                    <android.support.v7.widget.AppCompatButton
-                        android:id="@+id/appBtnSubmit"
-                        style="@style/ButtonTheme"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/huge"
-                        android:layout_marginTop="@dimen/medium"
-                        android:text="@string/btn_submit" />
-
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

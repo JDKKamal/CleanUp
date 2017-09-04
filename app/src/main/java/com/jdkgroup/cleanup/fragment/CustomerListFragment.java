@@ -5,11 +5,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -35,8 +39,8 @@ import static java.util.Arrays.asList;
 public class CustomerListFragment extends MVPFragment<CustomerListPresenter, CustomerListView> implements CustomerListView, View.OnClickListener, CustomerListAdapter.ItemListener {
 
     Unbinder unbinder;
-    @BindView (R.id.appBtnCustomerCreate)
-    AppCompatButton appBtnCustomerCreate;
+    @BindView (R.id.coordinatorLayout)
+    CoordinatorLayout coordinatorLayout;
     @BindView (R.id.recyclerView)
     RecyclerView recyclerView;
 
@@ -66,9 +70,37 @@ public class CustomerListFragment extends MVPFragment<CustomerListPresenter, Cus
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_customer_list, null);
         unbinder = ButterKnife.bind(this, view);
-
+        setHasOptionsMenu(true);
         APICall();
         return view;
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.findItem(R.id.action_search).setVisible(true);
+        menu.setGroupVisible(R.id.action_group_customer, true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_search:
+                return false;
+
+            case R.id.action_customer_create:
+                AppUtils.lauchFramgentActivity(getActivity(), AppConstant.LAUNCH_CUSTOMER_CREATE_FRAGMENT);
+                return true;
+
+            default:
+                break;
+        }
+
+        return false;
     }
 
     @Override
@@ -87,8 +119,6 @@ public class CustomerListFragment extends MVPFragment<CustomerListPresenter, Cus
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         setData();
-
-        appBtnCustomerCreate.setOnClickListener(this);
     }
 
     @Override
@@ -99,9 +129,7 @@ public class CustomerListFragment extends MVPFragment<CustomerListPresenter, Cus
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.appBtnCustomerCreate:
-                AppUtils.lauchFramgentActivity(getActivity(), AppConstant.LAUNCH_CUSTOMER_CREATE_FRAGMENT);
-                break;
+
         }
     }
 
@@ -159,12 +187,11 @@ public class CustomerListFragment extends MVPFragment<CustomerListPresenter, Cus
         paramMap = new HashMap();
         paramMap.put("userId", "1");
         getPresenter().callRXJavSingleDetailApi(paramMap);
-
     }
 
     @Override
     public void responseCustomerList(User user) {
-
+        showSnakBar(coordinatorLayout, getString(R.string.msg_api_call_successful));
     }
 
     @Override

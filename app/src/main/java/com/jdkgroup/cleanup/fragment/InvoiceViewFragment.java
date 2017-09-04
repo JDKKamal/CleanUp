@@ -16,11 +16,12 @@ import android.view.ViewGroup;
 
 import com.jdkgroup.baseclasses.BaseFragment;
 import com.jdkgroup.cleanup.R;
-import com.jdkgroup.cleanup.adapter.OpportunityListAdapter;
-import com.jdkgroup.constant.AppConstant;
+import com.jdkgroup.cleanup.adapter.InvoiceListAdapter;
 import com.jdkgroup.cleanup.model.api.ModelLeadList;
+import com.jdkgroup.constant.AppConstant;
 import com.jdkgroup.utils.AppUtils;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,35 +31,27 @@ import butterknife.Unbinder;
 
 import static java.util.Arrays.asList;
 
-public class OpportunityListFragment extends BaseFragment implements  OpportunityListAdapter.ItemListener {
+public class InvoiceViewFragment extends BaseFragment implements View.OnClickListener {
 
     Unbinder unbinder;
-    @BindView (R.id.recyclerView)
-    RecyclerView recyclerView;
 
-    public OpportunityListFragment() {
+    public InvoiceViewFragment() {
     }
 
-    @RequiresApi (api = Build.VERSION_CODES.N)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_opportunity_list, null);
+        View view = inflater.inflate(R.layout.fragment_invoice_list, null);
         unbinder = ButterKnife.bind(this, view);
         setHasOptionsMenu(true);
-
-        setData();
 
         return view;
     }
 
+    @RequiresApi (api = Build.VERSION_CODES.N)
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         unbinder = ButterKnife.bind(this, view);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 
     @Override
@@ -68,7 +61,7 @@ public class OpportunityListFragment extends BaseFragment implements  Opportunit
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.action_search).setVisible(true);
+        menu.setGroupVisible(R.id.action_group_invoice, true);
     }
 
     @Override
@@ -79,13 +72,25 @@ public class OpportunityListFragment extends BaseFragment implements  Opportunit
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_search:
+
+            case R.id.action_invoice_quotation_view:
 
                 return false;
 
-            case R.id.action_lead_create:
-                AppUtils.hideKeyboard(getActivity());
-                AppUtils.lauchFramgentActivity(getActivity(), AppConstant.LAUNCH_LEAD_SEARCH_TO_CREATE_FRAGMENT);
+            case R.id.action_invoice_task_view:
+
+                return false;
+
+            case R.id.action_invoice_subtask_task_view:
+
+                return false;
+
+            case R.id.action_invoice_meeting_task_view:
+
+                return false;
+
+            case R.id.action_invoice_save:
+
                 return false;
 
             default:
@@ -95,30 +100,11 @@ public class OpportunityListFragment extends BaseFragment implements  Opportunit
         return false;
     }
 
-    @RequiresApi (api = Build.VERSION_CODES.N)
-    private void setData() {
-        OpportunityListAdapter opportunityListAdapter = new OpportunityListAdapter(getActivity(), getLeadList());
-        recyclerView.setAdapter(opportunityListAdapter);
-        opportunityListAdapter.setListener(this);
-    }
-
-    @RequiresApi (api = Build.VERSION_CODES.N)
-    private List<ModelLeadList> getLeadList() {
-
-        List<ModelLeadList> modelCustomerList = asList
-                (
-                        new ModelLeadList("1", "", "", "", "", "", "", "", "", "", ""),
-                        new ModelLeadList("2", "", "", "", "", "", "", "", "", "", ""),
-                        new ModelLeadList("3", "", "", "", "", "", "", "", "", "", "")
-                );
-
-        List<ModelLeadList> olderUsers = modelCustomerList.stream().filter(u -> u.getUid().equalsIgnoreCase("1")).collect(Collectors.toList());
-        return olderUsers;
-    }
 
     @Override
-    public void onCustomerDetail(int id, ModelLeadList modelLeadList) {
-        AppUtils.lauchFramgentActivity(getActivity(), AppConstant.LAUNCH_OPPORTUNITY_DETAILS_FRAGMENT);
+    public void onClick(View view) {
+        switch (view.getId()) {
+        }
     }
 
     @Override

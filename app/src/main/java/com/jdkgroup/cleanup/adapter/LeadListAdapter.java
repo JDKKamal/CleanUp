@@ -48,21 +48,21 @@ public class LeadListAdapter extends RecyclerView.Adapter<LeadListAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        @BindView(R.id.appTvDetails)
-        AppCompatTextView appTvDetails;
+        @BindView(R.id.appTvView)
+        AppCompatTextView appTvView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
             ButterKnife.bind(this, itemView);
 
-            appTvDetails.setOnClickListener(this);
+            appTvView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.appTvDetails:
+                case R.id.appTvView:
                     listener.onCustomerDetail(getAdapterPosition(), alLeadList.get(getAdapterPosition()));
                     break;
 

@@ -16,14 +16,14 @@
     <string name="title_help">Help</string>
 
     <string name="title_customer_edit">Customer Edit</string>
-    <string name="title_customer_details">Customer Details</string>
-    <string name="title_lead_search_to_create">Lead Search To Create</string>
+    <string name="title_customer_view">Customer View</string>
     <string name="title_lead_details">Lead Details</string>
     <string name="title_lead_edit">Lead Edit</string>
     <string name="title_quotation_search_to_create">Quotation Search</string>
     <string name="title_quotation_create">Quotation Create</string>
-    <string name="title_quotation_details">Quotation Details</string>
-    <string name="title_opportunity_details">Opportunity Details</string>
+    <string name="title_quotation_view">Quotation View</string>
+    <string name="title_opportunity_view">Opportunity View</string>
+    <string name="title_invoice_view">Invoice View</string>
 
     <string name="title_country">Country</string>
 
@@ -39,10 +39,10 @@
     <string name="btn_cancel"> CANCEL </string>
     <string name="btn_payment"> PAYMENT </string>
     <string name="btn_lead_create"> LEAD CREATE </string>
-    <string name="btn_lead_search_to_create"> LEAD SEARCH TO CREATE </string>
+
     <string name="btn_customer_create"> CUSTOMER CREATE </string>
     <string name="btn_quotation_create"> QUOTATION CREATE </string>
-    <string name="btn_quotation_search"> QUOTATION SEARCH </string>
+
 
     <!--    HINT      -->
     <string name="hint_username"> Username </string>
@@ -82,6 +82,7 @@
     <string name="msg_empty_mobile">Enter mobile</string>
     <string name="msg_read_file_no">File not read</string>
     <string name="msg_otp_verify_success">OTP verify successful</string>
+    <string name="msg_api_call_successful">API Call Successful</string>
 
     <!--    LABEL MESSAGE      -->
     <string name="forgot_your_password">Forgot your password?</string>
@@ -90,6 +91,7 @@
     <string name="or">OR</string>
     <string name="timer">00:00</string>
     <string name="details">DETAILS</string>
+    <string name="view">VIEW</string>
     <string name="customer_name">Customer Name</string>
     <string name="customer_total">Customer Total</string>
     <string name="customer_id">Customer Id</string>
@@ -116,7 +118,7 @@
     <string name="address">Address</string>
     <string name="cleanup_details">CLEANUP DETAILS</string>
     <string name="quotation_id">Quotation Id</string>
-    <string name="quotation_create">QUOTATION CREATE</string>
+    <string name="quotation_last_detail">QUOTATION DETAILS</string>
     <string name="quotation_quality">Quotation Quality</string>
     <string name="quotation_total">Quotation Total</string>
     <string name="quotation_details">QUOTATION DETAILS</string>
@@ -153,11 +155,25 @@
     <string name="action_invoice">Invoice</string>
     <string name="action_invoice_create">Invoice Create</string>
     <string name="action_quotation">Quotation</string>
-    <string name="action_quotation_create">Quotation Create</string>
+
     <string name="action_task">Task</string>
     <string name="action_meeting">Meeting</string>
 
     <string name="action_setting">Setting</string>
+    <string name="action_setting_search">Search</string>
+
+    <string name="action_lead_search_to_create"> Lead Create </string>
+    <string name="action_quotation_search"> Quotation Search </string>
+    <string name="action_quotation_create"> Quotation Create </string>
+    <string name="action_task_create"> Task Create </string>
+    <string name="action_opportunity_view"> Opportunity View </string>
+    <string name="action_quotation_view"> Quotation View </string>
+    <string name="action_invoice_view"> Invoice View </string>
+    <string name="action_invoice_quotation_view"> Quotation View </string>
+    <string name="action_invoice_task_view"> Task View </string>
+    <string name="action_invoice_subtask_task_view"> SubTask View </string>
+    <string name="action_invoice_meeting_task_view"> Meeting View </string>
+    <string name="action_invoice_save"> Invoice Save </string>
 
     <string-array name="app_name_text_slider">
         <item>Clean Up</item>

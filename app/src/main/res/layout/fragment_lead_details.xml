@@ -31,6 +31,7 @@
             app:cardUseCompatPadding="true">
 
             <RelativeLayout
+                android:id="@+id/rlLeadQuality"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/small"
@@ -39,13 +40,13 @@
                 android:weightSum="1">
 
                 <android.support.v7.widget.AppCompatEditText
-                    android:id="@+id/appEdtCountry"
+                    android:id="@+id/appEdtLeadQuality"
                     style="@style/styleEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="0dp"
                     android:layout_marginBottom="@dimen/medium"
-                    android:layout_toLeftOf="@+id/appIvArrowCountry"
+                    android:layout_toLeftOf="@+id/appIvLeadQuality"
                     android:background="@null"
                     android:ellipsize="end"
                     android:focusable="false"
@@ -54,7 +55,7 @@
                     android:lines="1" />
 
                 <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/appIvArrowCountry"
+                    android:id="@+id/appIvLeadQuality"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"

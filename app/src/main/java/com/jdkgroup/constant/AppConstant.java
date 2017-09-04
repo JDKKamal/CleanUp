@@ -39,6 +39,7 @@ public class AppConstant {
     public static int LAUNCH_QUOTATION_DETAILS = 4_2;
     public static int LAUNCH_QUOTATION_CREATE = 4_3;
     public static int LAUNCH_INVOICE_LIST_FRAGMENT = 5;
+    public static int LAUNCH_INVOICE_VIEW_FRAGMENT = 5_1;
     public static int LAUNCH_MEETING_LIST_FRAGMENT = 6;
     public static int LAUNCH_TASK_LIST_FRAGMENT = 7;
 

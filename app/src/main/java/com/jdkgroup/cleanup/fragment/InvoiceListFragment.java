@@ -15,6 +15,8 @@ import com.jdkgroup.baseclasses.BaseFragment;
 import com.jdkgroup.cleanup.R;
 import com.jdkgroup.cleanup.adapter.InvoiceListAdapter;
 import com.jdkgroup.cleanup.model.api.ModelLeadList;
+import com.jdkgroup.constant.AppConstant;
+import com.jdkgroup.utils.AppUtils;
 
 import java.util.Comparator;
 import java.util.List;
@@ -26,7 +28,7 @@ import butterknife.Unbinder;
 
 import static java.util.Arrays.asList;
 
-public class InvoiceListFragment extends BaseFragment implements View.OnClickListener  {
+public class InvoiceListFragment extends BaseFragment implements View.OnClickListener, InvoiceListAdapter.ItemListener {
 
     Unbinder unbinder;
     @BindView (R.id.recyclerView)
@@ -64,8 +66,7 @@ public class InvoiceListFragment extends BaseFragment implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        switch (view.getId())
-        {
+        switch (view.getId()) {
         }
     }
 
@@ -73,6 +74,7 @@ public class InvoiceListFragment extends BaseFragment implements View.OnClickLis
     private void setData() {
         InvoiceListAdapter invoiceListAdapter = new InvoiceListAdapter(getActivity(), getLeadList());
         recyclerView.setAdapter(invoiceListAdapter);
+        invoiceListAdapter.setListener(this);
     }
 
     @RequiresApi (api = Build.VERSION_CODES.N)
@@ -91,7 +93,7 @@ public class InvoiceListFragment extends BaseFragment implements View.OnClickLis
         modelCustomerList.sort(
                 Comparator.comparing(ModelLeadList::getCity)
                         .thenComparing(ModelLeadList::getEmail));
-        modelCustomerList.sort((o1, o2)->o1.getFirstname().compareTo(o2.getFirstname()));
+        modelCustomerList.sort((o1, o2) -> o1.getFirstname().compareTo(o2.getFirstname()));
         return olderUsers;
     }
 
@@ -99,5 +101,10 @@ public class InvoiceListFragment extends BaseFragment implements View.OnClickLis
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void onCustomerDetail(int id, ModelLeadList modelLeadList) {
+        AppUtils.lauchFramgentActivity(getActivity(), AppConstant.LAUNCH_INVOICE_VIEW_FRAGMENT);
     }
 }

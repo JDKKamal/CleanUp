@@ -5,6 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -30,6 +33,7 @@ public class CustomerDetailsFragment extends BaseFragment implements View.OnClic
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_customer_details, null);
         unbinder = ButterKnife.bind(this, view);
+        setHasOptionsMenu(true);
 
         appTvCustomerEdit.setOnClickListener(this);
         return view;
@@ -39,15 +43,41 @@ public class CustomerDetailsFragment extends BaseFragment implements View.OnClic
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         unbinder = ButterKnife.bind(this, view);
-
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
     }
 
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        menu.setGroupVisible(R.id.action_group_lead, true);
+        menu.findItem(R.id.action_lead_opportunity_view).setVisible(false);
+        menu.findItem(R.id.action_lead_quotation_view).setVisible(false);
+        menu.findItem(R.id.action_lead_invoice_view).setVisible(false);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.action_lead_create:
+                AppUtils.hideKeyboard(getActivity());
+                AppUtils.lauchFramgentActivity(getActivity(), AppConstant.LAUNCH_LEAD_CREATE_BASIC_FRAGMENT);
+                return false;
+
+            default:
+                break;
+        }
+
+        return false;
+    }
 
     @Override
     public void onClick(View view) {
