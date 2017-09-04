@@ -7,10 +7,6 @@ import com.jdkgroup.interacter.InterActorCallback;
 import com.jdkgroup.view.RegisterUserView;
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.Observer;
-import io.reactivex.disposables.Disposable;
-
 public class RegisterUserPresenter extends BasePresenter<RegisterUserView> {
 
     public void getCountryList(RealmController realmController) {

@@ -5,7 +5,6 @@ import com.jdkgroup.cleanup.model.User;
 import com.jdkgroup.interacter.InterActorCallback;
 import com.jdkgroup.view.CustomerListView;
 import java.util.HashMap;
-import java.util.List;
 
 public class CustomerListPresenter extends BasePresenter<CustomerListView> {
 

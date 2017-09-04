@@ -1,6 +1,5 @@
 package com.jdkgroup.interacter;
 
-
 import com.jdkgroup.cleanup.database.RealmController;
 import com.jdkgroup.cleanup.model.User;
 import com.jdkgroup.cleanup.model.api.CountryModel;

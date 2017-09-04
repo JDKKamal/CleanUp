@@ -1,6 +1,5 @@
 package com.jdkgroup.baseclasses;
 
-
 import com.jdkgroup.interacter.AppInteractor;
 
 public abstract class BasePresenter<V extends BaseView> {

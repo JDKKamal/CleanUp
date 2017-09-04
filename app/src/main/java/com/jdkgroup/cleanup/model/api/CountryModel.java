@@ -1,14 +1,9 @@
 package com.jdkgroup.cleanup.model.api;
 
-import com.jdkgroup.interacter.Response;
-
 import io.realm.RealmObject;
 import io.realm.annotations.RealmClass;
 import io.realm.annotations.Required;
 
-/**
- * Created by samset on 27/05/16.
- */
 @RealmClass
 public class CountryModel extends RealmObject {
 
